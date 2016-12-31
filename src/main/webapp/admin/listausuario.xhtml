@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+          <style type="text/css">
+              
+              #p_dataTableid{
+                  margin-top:10px;
+              }
+
+          </style>
+
+    <ui:composition template="/WEB-INF/templates/Layout.xhtml">
+        <ui:define name="corpo">
+
+            <h:form id="cadastro">
+                <p:panel header="Cadastro de Usuário" style="text-align:center"/>
+            </h:form>
+
+            <h:form id="options">
+                <p:menubar style="margin-top:5px; margin-bottom:5px">
+                    <p:menuitem value="Home" url="sistema.jsf" icon="ui-icon-home" />
+                    <p:submenu label="Cômodos" icon="ui-icon-plusthick">
+                        <p:submenu label="1 - Lazer">
+                            <p:menuitem value="1.1 - Sala" url="sala.jsf" />
+                            <p:separator />
+                            <p:menuitem value="1.2 - Quarto" url="quarto.jsf" />
+                            <p:separator />
+                            <p:menuitem value="1.3 - Suíte" url="suite.jsf" />
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="2 - Operacional">
+                            <p:menuitem value="2.1 - Cozinha" url="cozinha.jsf" />
+                            <p:separator />
+                            <p:menuitem value="2.2 - Lavanderia" url="lavanderia.jsf" />
+                            <p:separator />
+                            <p:menuitem value="2.3 - Garagem" url="garagem.jsf" />
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="3 - Alimentação">
+                            <p:menuitem value="3.1 - Sala de Jantar" url="jantar.jsf" />
+                        </p:submenu>
+                        <p:separator />
+                        <p:submenu label="4 - Higiene">
+                            <p:menuitem value="4.1 - Banheiro" url="banheiro.jsf" />
+                        </p:submenu>
+                    </p:submenu>
+                    <p:submenu label="Gerenciamento de Usuários" icon="ui-icon-gear">
+                        <p:submenu label="Informações">
+                            <p:menuitem value="Cadastro de Usuários" url="cadastro.jsf"
+                                        icon="ui-icon-disk" />
+                            <p:separator />
+                            <p:menuitem value="Lista de Usuários" icon="ui-icon-search"
+                                        url="listausuario.jsf" />
+                            <p:separator />
+                            <p:menuitem value="Alterar ou Excluir Usuário"
+                                        icon="ui-icon-trash" url="alterausuario.jsf" />
+                        </p:submenu>
+                    </p:submenu>
+                    <f:facet name="options">
+                        <p:commandButton value="Sair" action="login.jsf" />
+                    </f:facet>
+                </p:menubar>
+
+                <br />
+
+                <p:dataTable value="#{usuarioBean.lista}" var="usuario" 
+                                paginator="true" paginatorPosition="bottom"
+                             id="p_dataTableid">
+
+                    <f:facet name="caption">
+                        Exibição dos usuários cadastrados.
+                    </f:facet>
+
+                    <p:column sortBy="#{usuario.id}">
+                        <f:facet name="header">Código Identificador</f:facet>
+                            #{usuario.id}
+                    </p:column>
+
+                    <p:column sortBy="#{usuario.nome}">
+                        <f:facet name="header">Nome</f:facet>
+                            #{usuario.nome}
+                    </p:column>
+
+                    <p:column sortBy="#{usuario.sobrenome}">
+                        <f:facet name="header">Sobrenome</f:facet>
+                            #{usuario.sobrenome}
+                    </p:column>
+
+                    <p:column sortBy="#{usuario.email}">
+                        <f:facet name="header">Email</f:facet>
+                        <a href="mailto:#{usuario.email}">#{usuario.email}</a>
+                    </p:column>
+
+                    <p:column sortBy="#{usuario.login}">
+                        <f:facet name="header">Login</f:facet>
+                            #{usuario.login}
+                    </p:column>
+
+                </p:dataTable>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
