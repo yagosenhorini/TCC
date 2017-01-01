@@ -20,6 +20,7 @@ public class LoginBean {
 		}
 
 		else {
+                    
                         FacesMessage msg = new FacesMessage("Usuário ou senha inválido!");
                         FacesContext.getCurrentInstance().addMessage("erro", msg);
    			return "login.xhtml ?faces-redirect=true";
