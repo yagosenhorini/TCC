@@ -10,9 +10,10 @@
 
             <h:form id="cadastro">
                 <p:panel header="Cadastro de Usuário" style="text-align:center"/>
-                </form>
+                </h:form>
 
                 <h:form id="options">
+                    <p:growl id="growl" life="2000" />
                     <p:menubar style="margin-top:5px; margin-bottom:5px">
                         <p:menuitem value="Home" url="sistema.jsf" icon="ui-icon-home" />
                         <p:submenu label="Cômodos" icon="ui-icon-plusthick">
@@ -85,9 +86,7 @@
                         <p:password id="senhaconf-usuario" size="30" maxlength="100"
                                     value="#{usuarioBean.confirmarSenha}" />
                         <br />
-                        <p:commandButton value="Cadastrar Dados" id="botao-insere"
-                                         action="#{usuarioBean.salvar()}">
-                        </p:commandButton>
+                        <p:commandButton value="Cadastrar Dados" id="ajax-cadastro" update="growl" actionListener="#{usuarioBean.salvar()}" styleClass="ui-priority-primary" />
                     </h:panelGrid>
 
 

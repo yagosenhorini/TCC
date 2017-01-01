@@ -11,7 +11,9 @@
             <h:form id="cadastro">
                 <p:panel header="Excluir Usuários" style="text-align:center"/>
             </h:form>
+
             <h:form id="options">
+                <p:growl id="growl" life="2000" />
                 <p:menubar style="margin-top:5px; margin-bottom:5px">
                     <p:menuitem value="Home" url="sistema.jsf" icon="ui-icon-home" />
                     <p:submenu label="Cômodos" icon="ui-icon-plusthick">
@@ -63,12 +65,10 @@
                     <p:outputLabel value="Identificador:" for="login-usuario" />
                     <p:inputText id="login-usuario" size="1" maxlength="3"
                                  value="#{usuarioBean.usuario.id}" />
-
+                    <p:commandButton value="Excluir Usuário" id="ajax-exclusao" update="growl" actionListener="#{usuarioBean.excluir()}" styleClass="ui-priority-primary" />
 
                     <br />
-                    <p:commandButton value="Excluir" id="botao-exclui"
-                                     action="#{usuarioBean.excluir()}">
-                    </p:commandButton>
+
                 </h:panelGrid>
 
 
