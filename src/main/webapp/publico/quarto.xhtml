@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/WEB-INF/templates/Layout.xhtml">
+	<ui:define name="corpo">
+
+		<h:form>
+			<p:panel header="Cômodo 1.2 - Quarto" width="100"
+				style="text-align:center"/>
+				</h:form>
+
+						<h:form id="options">
+			<p:menubar style="margin-top:5px; margin-bottom:5px">
+				<p:menuitem value="Home" url="sistema.jsf" icon="ui-icon-home" />
+				<p:submenu label="Cômodos" icon="ui-icon-plusthick">
+					<p:submenu label="1 - Lazer">
+						<p:menuitem value="1.1 - Sala" url="sala.jsf" />
+						<p:separator />
+						<p:menuitem value="1.2 - Quarto" url="quarto.jsf" />
+						<p:separator />
+						<p:menuitem value="1.3 - Suíte" url="suite.jsf" />
+					</p:submenu>
+					<p:separator />
+					<p:submenu label="2 - Operacional">
+						<p:menuitem value="2.1 - Cozinha" url="cozinha.jsf" />
+						<p:separator />
+						<p:menuitem value="2.2 - Lavanderia" url="lavanderia.jsf" />
+						<p:separator />
+						<p:menuitem value="2.3 - Garagem" url="garagem.jsf" />
+					</p:submenu>
+					<p:separator />
+					<p:submenu label="3 - Alimentação">
+						<p:menuitem value="3.1 - Sala de Jantar" url="jantar.jsf" />
+					</p:submenu>
+					<p:separator />
+					<p:submenu label="4 - Higiene">
+						<p:menuitem value="4.1 - Banheiro" url="banheiro.jsf" />
+					</p:submenu>
+				</p:submenu>
+				<p:submenu label="Gerenciamento de Usuários" icon="ui-icon-gear">
+					<p:submenu label="Informações">
+						<p:menuitem value="Cadastro de Usuários" url="cadastro.jsf"
+							icon="ui-icon-disk" />
+						<p:separator />
+						<p:menuitem value="Lista de Usuários" icon="ui-icon-search"
+							url="listausuario.jsf" />
+						<p:separator />
+						<p:menuitem value="Alterar ou Excluir Usuário"
+							icon="ui-icon-trash" url="alterausuario.jsf" />
+					</p:submenu>
+				</p:submenu>
+				<f:facet name="options">
+					<p:commandButton value="Sair" action="login.jsf" />
+				</f:facet>
+			</p:menubar>
+			
+			<p:graphicImage value="/imagens/quarto_smart.jpeg" width="700px"
+				height="500px" />
+
+			<p:toolbar>
+				<f:facet name="left">
+					<p:commandButton value="Ligar" />
+				</f:facet>
+				<f:facet name="right">
+					<p:commandButton value="Desligar" />
+				</f:facet>
+			</p:toolbar>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
